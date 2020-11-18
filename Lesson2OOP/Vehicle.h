@@ -19,9 +19,10 @@ public:
 	const size_t & getYear() const;
 	const size_t & getMaxSpeed() const;
 	void print() const;
-	Vehicle() = default;  //default
+	Vehicle(); //default
 	Vehicle(const char* brand, const size_t& year, const size_t& max_speed = SPEED_LIMIT);
 	Vehicle(const char* brand);
+	~Vehicle();
 private:
 	char* brand=nullptr; // it will dynamic field
 	size_t year=0; //year of create
