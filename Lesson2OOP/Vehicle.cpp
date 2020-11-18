@@ -68,9 +68,32 @@ void Vehicle::print() const
     cout << "Max Speed: " << max_speed<<endl;
 }
 
+Vehicle::Vehicle()
+     :Vehicle("Unkown Vehicle",0,0)
+{
+    
+}
+
 Vehicle::Vehicle(const char* brand, const size_t& year, const size_t& max_speed)
 {
     setBrand(brand);
     setYear(year);
     setMaxSpeed(max_speed);
+}
+
+Vehicle::Vehicle(const char* brand)
+    :Vehicle(brand, (size_t)YearLimits::MIN_YEAR)
+{
+    /* setBrand(brand);
+    setYear((size_t)YearLimits::MIN_YEAR);
+    setMaxSpeed(SPEED_LIMIT); */
+}
+
+Vehicle::~Vehicle()
+{
+    if (brand!=nullptr)
+    {
+        delete[] brand;
+        brand = nullptr;
+    }
 }
