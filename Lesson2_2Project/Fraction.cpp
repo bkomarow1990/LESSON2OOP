@@ -37,3 +37,14 @@ Fraction Fraction::mult(const Fraction& two)
 	result.denom = this->denom * two.denom;
 	return result;
 }
+
+Fraction::Fraction(const int& denom)
+	:Fraction()
+{
+}
+
+Fraction::Fraction(const int& num, const int& denom)
+{
+	setDenom(denom);
+}
+

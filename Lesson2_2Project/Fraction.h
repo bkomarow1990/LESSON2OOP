@@ -9,6 +9,9 @@ public:
 	void setNum(int num);
 	const int getDenom() const;
 	Fraction mult(const Fraction & two);
+	Fraction(const int& denom);
+	Fraction(const int& num,const int& denom);
+	
 private:
 	int num, denom;
 };
