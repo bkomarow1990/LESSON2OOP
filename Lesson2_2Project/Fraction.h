@@ -7,8 +7,14 @@ public:
 	void print() const;
 	void setDenom(int denom);
 	void setNum(int num);
+	const int getNum() const;
 	const int getDenom() const;
-	Fraction mult(const Fraction & two);
+	void reduceFraction();
+	// const int getLeastCommonMultiple() const;
+	Fraction mult(const Fraction & two)const;
+	Fraction plus(const Fraction& two)const;
+	Fraction fractionPlusSimple(const int& simple_num) const;
+	Fraction fractionMultSimple(const int& simple_num) const;
 	Fraction(const int& denom);
 	Fraction(const int& num,const int& denom);
 	

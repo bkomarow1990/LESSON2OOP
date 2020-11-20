@@ -12,6 +12,6 @@ int main() {
 	car.print();
 	Vehicle car2("BMW", 2005);
 	car2.print();
-	Vehicle lorry("KAMAZZ",);
+	Vehicle lorry("KAMAZZ");
 	return 0;
 }
