@@ -66,17 +66,13 @@ Fraction Fraction::mult(const Fraction& two) const
 	result.denom = this->denom * two.denom;
 	return result;
 }
-
 Fraction Fraction::plus(const Fraction& two) const
 {
 	Fraction result;
-	if (this->getDenom() == two.getDenom())
-	{
-		result.setDenom(denom);
-		result.setNum(num+two.num);
-	}
-	else {
-		int nsk;
+		result.num = this->num * two.denom + two.num * this->denom;
+		result.denom = this->denom * two.denom;
+		result.reduceFraction();
+		/* int nsk;
 		int i = 0;
 		if (this->getDenom()<two.getDenom())
 		{
@@ -96,8 +92,8 @@ Fraction Fraction::plus(const Fraction& two) const
 			i++;
 		}
 		int help_fraction1, help_fraction2;
-		help_fraction1 = nsk / this->getDenom();
-		help_fraction2 = nsk / two.getDenom();
+		help_fraction1 = nsk / this->getDenom();//8
+		help_fraction2 = nsk / two.getDenom();//5
 		Fraction temp_fraction1;
 		Fraction temp_fraction2;
 		temp_fraction1.setNum(num * help_fraction1);
@@ -105,8 +101,22 @@ Fraction Fraction::plus(const Fraction& two) const
 		temp_fraction2.setNum(two.num*help_fraction2);
 		temp_fraction2.setDenom (two.denom * help_fraction2);
 		result.setNum(temp_fraction1.num+temp_fraction2.num);
-		result.setDenom(temp_fraction2.denom);
-	}
+		result.setDenom(temp_fraction2.denom); */
+	return result;
+}
+Fraction Fraction::minus(const Fraction& two) const
+{
+	Fraction result;
+	result.num = this->num * two.denom - two.num * this->denom;
+	result.denom = this->denom * two.denom;
+	result.reduceFraction();
+	return result;
+}
+Fraction Fraction::divide(const Fraction& two) const
+{
+	Fraction result;
+	result.num = this->num * two.denom;
+	result.denom = this->denom * two.num;
 	return result;
 }
 Fraction Fraction::fractionPlusSimple(const int& simple_num) const
@@ -127,6 +137,16 @@ Fraction Fraction::fractionMultSimple(const int& simple_num) const
 	result.setDenom(denom);
 	return result;
 }
+bool Fraction::isFractionEqual(const Fraction& two) const
+{
+	if (this->num/this->denom == two.num/two.denom)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 Fraction::Fraction(const int& denom)
 	:Fraction()
 {
@@ -134,6 +154,7 @@ Fraction::Fraction(const int& denom)
 
 Fraction::Fraction(const int& num, const int& denom)
 {
+	setNum(num);
 	setDenom(denom);
 }
 
